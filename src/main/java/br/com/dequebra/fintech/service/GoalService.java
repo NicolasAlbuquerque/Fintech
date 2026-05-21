@@ -15,7 +15,7 @@ public class GoalService {
     private TransactionRepository transactionRepository;
 
 
-    public Goal save(Goal transaction){ return transactionRepository.save(transaction); }
+    public Goal save(Goal goal){ return transactionRepository.save(goal); }
 
     public Goal findGoalById(Long id){
         Transaction transaction = transactionRepository.findById(id)
@@ -38,9 +38,10 @@ public class GoalService {
     }
 
     public void delete(Long id){
-        Transaction transaction = transactionRepository.findById(id).orElseThrow(() -> new RuntimeException("Transaction not found."));
+        Transaction transaction = transactionRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Transaction not found."));
         if(!(transaction instanceof Goal)){
-            throw  new RuntimeException("Transaction is not a Goal");
+            throw new RuntimeException("Transaction is not a Goal");
 
         }
         transactionRepository.deleteById(id);

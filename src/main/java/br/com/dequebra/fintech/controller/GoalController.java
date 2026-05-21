@@ -17,24 +17,32 @@ public class GoalController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Goal save(@RequestBody Goal goal) { return goalService.save(goal); }
+    public Goal save(@RequestBody Goal goal) {
+        return goalService.save(goal);
+    }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Goal findById(@PathVariable Long id) { return goalService.findGoalById(id); }
+    public Goal findById(@PathVariable Long id) {
+        return goalService.findGoalById(id);
+    }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Goal> findAll() { return goalService.findAll(); }
+    public List<Goal> findAll() {
+        return goalService.findAll();
+    }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id) { goalService.delete(id); }
+    public void delete(@PathVariable Long id) {
+        goalService.delete(id);
+    }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Goal update(@PathVariable Long id, @RequestBody Goal goal){
-        return goalService.update(id,goal);
+        return goalService.update(id, goal);
     }
 
 }

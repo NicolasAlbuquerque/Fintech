@@ -13,10 +13,10 @@ import java.time.LocalDate;
 @PrimaryKeyJoinColumn(name = "id_transaction")
 public class Goal extends Transaction {
 
-    @Column(name = "stipulatedamount", nullable = false)
+    @Column(name = "stipulatedamount", nullable = false, precision = 10, scale = 2)
     private BigDecimal stipulatedAmount;
 
-    @Column(name = "currentvalue", nullable = false)
+    @Column(name = "currentvalue", nullable = false, precision = 10, scale = 2)
     private BigDecimal currentValue;
 
     @Column(name = "enddate", nullable = false)
